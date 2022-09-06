@@ -1,8 +1,8 @@
 import './App.scss';
 import {saludarPorConsola} from './SaludoConsola.js';
 import NavBar from './components/NavBar.js';
-import Stock from './components/ItemListContainer';
 import ItemCount from './components/ItemCount';
+import ItemListContainer from './components/ItemListContainer';
 
 function App() {
 
@@ -11,8 +11,10 @@ function App() {
   return (
     <>
         <NavBar/>
-        <Stock/>
+
         <ItemCount/>
+
+        <ItemListContainer/>
     </>
   );
 }

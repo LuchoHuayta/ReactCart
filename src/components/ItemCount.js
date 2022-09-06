@@ -20,7 +20,7 @@ const ItemCount = ({stock, addToCart}) => {
 
         <span>{ count }</span>
 
-        <button disabled={count >= 10} onClick={handleAdd} >
+        <button disabled={count >= 5} onClick={handleAdd} >
             +
         </button>
 

@@ -1,10 +1,31 @@
+import { useEffect, useState } from "react";
+import { pedirDatos } from "../helpers/pedirDatos";
+import ItemList from "./ItemList";
 
 
-const Stock = () => {
+const ItemListContainer = () => {
+
+    const [productos, setProductos] = useState([])
+
+    useEffect(() => {
+        pedirDatos()
+        .then( (res) => {
+            setProductos(res)
+        } )
+        .catch( (error) => {
+            console.log(error)
+        })
+        .finally( () => {
+            console.log("Fin del pedirDatos")
+        })
+    }, [])
+    
     return (
-        <h2>Contenedor de lista de productos</h2>
+        <div>
+            <ItemList productos={productos}/>
+        </div>
     )
 }
 
 
-export default Stock
+export default ItemListContainer
