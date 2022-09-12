@@ -1,12 +1,14 @@
 import CardWidget from "./CartWidget.js";
-
+import { Link } from 'react-router-dom'
 
 const NavBar = () => {
     return (
         <nav>
             <ul>
-                <li><a href="#">Link1</a></li>
-                <li><a href="#">Link2</a></li>
+                <li><Link to={'/'}>ItemListContainer</Link></li>
+                <li><Link to={'/productos/pescado'}>Pescado</Link></li>
+                <li><Link to={'/productos/pollo'}>Pollo</Link></li>
+                <li><Link to={'/productos/carne'}>Carne</Link></li>
                 <li><CardWidget /></li>
             </ul>
         </nav>

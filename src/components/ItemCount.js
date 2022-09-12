@@ -14,6 +14,9 @@ const ItemCount = ({stock, addToCart}) => {
 
   return (
     <div>
+        <h2>ItemCount</h2>
+        <hr></hr>
+
         <button disabled={count <= 1} onClick={handleSubstract}>
             -
         </button>

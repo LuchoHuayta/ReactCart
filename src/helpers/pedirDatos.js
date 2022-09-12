@@ -5,6 +5,6 @@ export const pedirDatos= () => {
         setTimeout(() => {
             resolve(stock)
             //reject("Promesa rechazada") 
-        }, 3000);
+        }, 1000);
     } )
 }
