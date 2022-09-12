@@ -1,9 +1,10 @@
 import './App.scss';
 import {saludarPorConsola} from './SaludoConsola.js';
-import NavBar from './components/NavBar.js';
 import ItemListContainer from './components/ItemListContainer';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import ItemDetailCointainer from './components/ItemDetailContainer';
+import Header from './components/Header';
+import CssBaseline from '@mui/material/CssBaseline'
 
 function App() {
 
@@ -13,7 +14,9 @@ function App() {
 
         <BrowserRouter>
 
-          <NavBar/>
+          <CssBaseline />
+          
+          <Header/>
 
           <Routes>
             <Route path='/' element={ <ItemListContainer/> }/>

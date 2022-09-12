@@ -32,10 +32,11 @@ const ItemListContainer = () => {
     }, [categoryId])
     
     return (
-        <div>
+        <div className="div-itemListContainer">
+            <h2>Contenedor de lista de productos</h2>
             {
                 loading
-                ? <h2>Cargando...</h2>
+                ? <h3>No me funca el spinner xd</h3>
                 : <ItemList productos={productos}/>
             }
         </div>

@@ -28,7 +28,7 @@ const ItemDetailCointainer = () => {
         <div>
             {
                 loading
-                ? <h2>Cargando...</h2>
+                ? <h3>No me funca el spinner xd</h3>
                 : <ItemDetail item={item}/>
             }
         </div>

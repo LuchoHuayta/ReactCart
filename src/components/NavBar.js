@@ -1,16 +1,12 @@
-import CardWidget from "./CartWidget.js";
-import { Link } from 'react-router-dom'
+
+import { NavLink } from 'react-router-dom'
 
 const NavBar = () => {
     return (
         <nav>
-            <ul>
-                <li><Link to={'/'}>ItemListContainer</Link></li>
-                <li><Link to={'/productos/pescado'}>Pescado</Link></li>
-                <li><Link to={'/productos/pollo'}>Pollo</Link></li>
-                <li><Link to={'/productos/carne'}>Carne</Link></li>
-                <li><CardWidget /></li>
-            </ul>
+            <NavLink className={({isActive}) => (isActive ? "link-active" : "link-noactive")} to={'/productos/pescado'}>Pescado</NavLink>
+            <NavLink className={({isActive}) => (isActive ? "link-active" : "link-noactive")} to={'/productos/pollo'}>Pollo</NavLink>
+            <NavLink className={({isActive}) => (isActive ? "link-active" : "link-noactive")} to={'/productos/carne'}>Carne</NavLink>
         </nav>
     )
 }
