@@ -1,33 +1,38 @@
 import React, { useState } from 'react'
 
-const ItemCount = ({stock, addToCart}) => {
-    const [count, setCount] = useState(1);
-
-    const handleAdd = () => {
-            setCount(count + 1)
+const ItemCount = ({max, count, setCount, handleAgregar}) => {
+    
+    const handleRestar = () => {
+      if (count > 1) {
+        setCount(count - 1)
+      }
     }
 
-    const handleSubstract = () => {
-            setCount(count - 1)
+    const handleSumar = () => {
+      if (count < max) {
+        setCount(count + 1)
+      }
     }
-
 
   return (
     <div>
-        <h2>ItemCount</h2>
-        <hr></hr>
-
-        <button disabled={count <= 1} onClick={handleSubstract}>
+        <button 
+          onClick={handleRestar}
+        >
             -
         </button>
 
         <span>{ count }</span>
 
-        <button disabled={count >= 5} onClick={handleAdd} >
+        <button 
+          onClick={handleSumar}
+        >
             +
         </button>
 
-        <button>Añadir al carrito</button>
+        <button onClick={handleAgregar}>
+          Añadir al carrito
+        </button>
     </div>
   )
 }
