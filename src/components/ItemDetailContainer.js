@@ -21,14 +21,14 @@ const ItemDetailCointainer = () => {
             .finally(() => {
                 setLoading(false)
             })
-    }, [])
-    
+    }, [itemId])
+    // agregue el itemId aca arriba
     
     return (
         <div>
             {
                 loading
-                ? <h3>No me funca el spinner xd</h3>
+                ? <h3>Spinner</h3>
                 : <ItemDetail item={item}/>
             }
         </div>

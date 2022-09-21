@@ -10,7 +10,6 @@ const ItemListContainer = () => {
     const [loading, setLoading] = useState(true)
 
     const { categoryId } = useParams()
-    console.log(categoryId)
 
     useEffect(() => {
         setLoading(true)
@@ -36,7 +35,7 @@ const ItemListContainer = () => {
             <h2>Contenedor de lista de productos</h2>
             {
                 loading
-                ? <h3>No me funca el spinner xd</h3>
+                ? <h3>Spinner</h3>
                 : <ItemList productos={productos}/>
             }
         </div>
