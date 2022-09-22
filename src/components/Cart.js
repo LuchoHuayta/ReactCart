@@ -1,10 +1,11 @@
-import { useContext } from "react"
-import { CartContext } from "./CartContext"
+import { useCartContext } from "../context/CartContext"
+import DeleteIcon from '@mui/icons-material/Delete';
+import { IconButton } from "@mui/material";
 
 
 const Cart= () => {
 
-    const { cart, cartTotal, emptyCart } = useContext(CartContext)
+    const { cart, cartTotal, emptyCart, removeItem } = useCartContext()
 
     return (
         <div>
@@ -16,6 +17,12 @@ const Cart= () => {
                 <h3>{item.name}</h3>
                 <p>${item.price}</p>
                 <p>x{item.cantidad}</p>
+                <IconButton
+                    onClick={() => removeItem(item.id)}
+                    color="error"
+                    aria-label="delete">
+                    <DeleteIcon/>
+                </IconButton>
                 <hr/>
             </div>
             ))}

@@ -4,12 +4,14 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import ItemDetailCointainer from './components/ItemDetailContainer';
 import Header from './components/Header';
 import CssBaseline from '@mui/material/CssBaseline';
-import CartProvider from './components/CartContext';
+import CartProvider from './context/CartContext';
 import Cart from './components/Cart';
+import { LoginProvider } from './context/LoginContext';
 
 function App() {
 
   return (
+    <LoginProvider>
 
       <CartProvider>
 
@@ -35,6 +37,7 @@ function App() {
           
       </CartProvider>
 
+    </LoginProvider>
   );
 }
 
