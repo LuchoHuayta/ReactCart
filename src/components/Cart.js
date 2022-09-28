@@ -1,6 +1,7 @@
 import { useCartContext } from "../context/CartContext"
 import DeleteIcon from '@mui/icons-material/Delete';
 import { IconButton } from "@mui/material";
+import { Link } from "react-router-dom";
 
 
 const Cart= () => {
@@ -29,6 +30,7 @@ const Cart= () => {
 
             <h4>Total: ${cartTotal()}</h4>
             <button onClick={emptyCart}>Vaciar Carrito</button>
+            <Link to="/checkout">Terminar mi compra</Link>
         </div>
 
     )

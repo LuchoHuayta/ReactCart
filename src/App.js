@@ -6,6 +6,7 @@ import Header from './components/Header';
 import CssBaseline from '@mui/material/CssBaseline';
 import CartProvider from './context/CartContext';
 import Cart from './components/Cart';
+import Checkout from './components/Checkout';
 // import { LoginProvider } from './context/LoginContext';
 
 function App() {
@@ -29,6 +30,8 @@ function App() {
             <Route path='/item/:itemId' element={<ItemDetailCointainer/>}/>
 
             <Route path='/cart' element={<Cart/>}/>
+
+            <Route path='/checkout' element={<Checkout/>}/>
 
             <Route path='*' element={ <Navigate to ="/"/> }/>
           </Routes>
