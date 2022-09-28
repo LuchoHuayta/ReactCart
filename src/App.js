@@ -6,12 +6,12 @@ import Header from './components/Header';
 import CssBaseline from '@mui/material/CssBaseline';
 import CartProvider from './context/CartContext';
 import Cart from './components/Cart';
-import { LoginProvider } from './context/LoginContext';
+// import { LoginProvider } from './context/LoginContext';
 
 function App() {
 
   return (
-    <LoginProvider>
+    // <LoginProvider>
 
       <CartProvider>
 
@@ -37,7 +37,7 @@ function App() {
           
       </CartProvider>
 
-    </LoginProvider>
+    // </LoginProvider>
   );
 }
 
