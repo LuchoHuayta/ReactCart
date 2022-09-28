@@ -1,10 +1,14 @@
 import { useState } from "react"
 import { Navigate } from "react-router-dom"
 import { useCartContext } from "../context/CartContext"
+import { addDoc, collection } from "firebase/firestore"
+import { db } from "../firebase/fireconfig"
 
 const Checkout = () => {
 
-    const { cart, cartTotal } = useCartContext()
+    const { cart, cartTotal, terminarCompra } = useCartContext()
+
+    const [orderId, setOrderID] = useState(null)
 
     const [values, setValues] = useState({
         nombre: '',
@@ -39,8 +43,24 @@ const Checkout = () => {
             return
         }
 
-        console.log("Submit del form")
-        console.log(orden)
+        const ordenesRef = collection(db, 'ordenes')
+
+        addDoc(ordenesRef, orden)
+            .then((doc) => {
+                console.log(doc.id)
+                setOrderID(doc.id)
+                terminarCompra()
+            })
+    }
+
+    if (orderId) {
+        return (
+            <div>
+                <h2>Compra Exitosa</h2>
+                <hr/>
+                <p>Tu numero de orden es: <strong>{orderId}</strong></p>
+            </div>
+        )
     }
 
     if (cart.length === 0) {
