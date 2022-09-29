@@ -55,15 +55,59 @@
     }
 
     .div-itemList {
-        display: flex;
-        justify-content: space-around;
+        display: grid;
+        grid-template-rows: 1fr 1fr; 
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        row-gap: 30px;
+        
 
         .div-item {
+            width: 200px;
+            height: 275px;
+            padding: 10px;
+            border: 1px solid grey;
+            text-align: center;
 
             img {
                 width: 150px;
                 border-radius: 50%;
+                box-shadow: 0 5px 10px grey;
             }
+
+            h4 {
+                margin: 0;
+                height: 40px;
+            }
+
+            div {
+                margin: 0 10px 0 10px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                p {
+                    display: inline-block;
+                    font-weight: bold;
+                }
+
+                a {
+                    button {
+                        border: none;
+                        font-size: medium;
+                        background-color: transparent;
+                        cursor: pointer;
+                    }
+
+                    button:hover {
+                        background-color: ghostwhite;
+                        border: 1px solid grey;
+                        border-radius: 50%;
+                    }
+                }
+    
+            }
+
+
         }
     }
 }

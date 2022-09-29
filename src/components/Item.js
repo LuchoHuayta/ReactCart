@@ -6,8 +6,11 @@ const Item = ( {producto} ) => {
         <div className="div-item">
             <img src={producto.img} alt={producto.name}/>
             <h4>{producto.name}</h4>
-            <p>${producto.price}</p>
-            <Link to={`/item/${producto.id}`}><button>Ver mas</button></Link>
+            <div>
+                <p>${producto.price}</p>
+                <Link to={`/item/${producto.id}`}><button>+</button></Link>
+            </div>
+
         </div>
     )
 }
