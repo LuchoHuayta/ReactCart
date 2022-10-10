@@ -15,7 +15,10 @@ const Cart= () => {
 
             { cart.map((item) => (
             <div className="cart-list" key={item.id}>
-                <h3>{item.name}</h3>
+                <div>
+                    <img src={item.img} alt={item.name}/>
+                    <h3>{item.name}</h3>
+                </div>
                 <p>${item.price}</p>
                 <p>x{item.cantidad}</p>
                 <IconButton

@@ -25,7 +25,6 @@ const ItemDetailCointainer = () => {
                 setLoading(false)
             })
     }, [itemId])
-    // agregue el itemId aca arriba
     
     return (
         <div>

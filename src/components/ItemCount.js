@@ -1,4 +1,6 @@
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import AddBoxIcon from '@mui/icons-material/AddBox';
+import IndeterminateCheckBoxIcon from '@mui/icons-material/IndeterminateCheckBox';
 
 
 const ItemCount = ({max, count, setCount, handleAgregar}) => {
@@ -16,11 +18,13 @@ const ItemCount = ({max, count, setCount, handleAgregar}) => {
     }
 
   return (
-    <div>
+    <div className='item-count'>
+
+      <div>
         <button 
           onClick={handleRestar}
         >
-            -
+          <IndeterminateCheckBoxIcon/>
         </button>
 
         <span>{ count }</span>
@@ -28,12 +32,15 @@ const ItemCount = ({max, count, setCount, handleAgregar}) => {
         <button 
           onClick={handleSumar}
         >
-            +
+          <AddBoxIcon/>
         </button>
+      </div>
 
+      <div>
         <button onClick={handleAgregar}>
-          <AddShoppingCartIcon/>
+          <AddShoppingCartIcon fontSize='large'/>
         </button>
+      </div>
     </div>
   )
 }

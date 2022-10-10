@@ -3,6 +3,8 @@ import { Navigate } from "react-router-dom"
 import { useCartContext } from "../context/CartContext"
 import { addDoc, collection } from "firebase/firestore"
 import { db } from "../firebase/fireconfig"
+import CreditScoreIcon from '@mui/icons-material/CreditScore';
+import PriceCheckIcon from '@mui/icons-material/PriceCheck';
 
 const Checkout = () => {
 
@@ -48,6 +50,7 @@ const Checkout = () => {
         addDoc(ordenesRef, orden)
             .then((doc) => {
                 console.log(doc.id)
+                console.log(cart)
                 setOrderID(doc.id)
                 terminarCompra()
             })
@@ -55,10 +58,20 @@ const Checkout = () => {
 
     if (orderId) {
         return (
-            <div>
-                <h2>Compra Exitosa</h2>
-                <hr/>
+            <div className="div-checkout">
+                <h2>Mi pedido</h2>
                 <p>Tu numero de orden es: <strong>{orderId}</strong></p>
+                <h3><PriceCheckIcon fontSize="medium"/> Pago exitoso</h3>
+
+                <div>
+                { cart.map((item) => (
+            <div className="cart-list" key={item.id}>
+                <h3>{item.name}</h3>
+                <p>${item.price}</p>
+                <p>x{item.cantidad}</p>
+            </div>
+            ))}
+                </div>
             </div>
         )
     }
@@ -68,9 +81,8 @@ const Checkout = () => {
     }
 
     return (
-        <div>
+        <div className="div-checkout">
             <h2>Checkout</h2>
-            <hr/>
 
             <form onSubmit={handleSubmit}>
                 <input
@@ -95,7 +107,7 @@ const Checkout = () => {
                     placeholder="Direccion"
                 />
 
-                <button type="submit">Hacer el pedido</button>
+                <button type="submit"><CreditScoreIcon/><p>Confirmar Pedido</p></button>
             </form>
         </div>
     )
