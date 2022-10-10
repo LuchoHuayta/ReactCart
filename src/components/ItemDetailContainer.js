@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { db } from "../firebase/fireconfig";
 import ItemDetail from "./ItemDetail";
+import CircularProgress from '@mui/material/CircularProgress';
 
 const ItemDetailCointainer = () => {
 
@@ -30,7 +31,7 @@ const ItemDetailCointainer = () => {
         <div>
             {
                 loading
-                ? <h3>Spinner</h3>
+                ? <CircularProgress color="inherit"/>
                 : <ItemDetail item={item}/>
             }
         </div>

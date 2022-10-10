@@ -7,6 +7,7 @@ const NavBar = () => {
             <NavLink className={({isActive}) => (isActive ? "link-active" : "link-noactive")} to={'/productos/pescado'}>Pescado</NavLink>
             <NavLink className={({isActive}) => (isActive ? "link-active" : "link-noactive")} to={'/productos/pollo'}>Pollo</NavLink>
             <NavLink className={({isActive}) => (isActive ? "link-active" : "link-noactive")} to={'/productos/carne'}>Carne</NavLink>
+            <NavLink className={({isActive}) => (isActive ? "link-active" : "link-noactive")} to={'/productos/mariscos'}>Mariscos</NavLink>
         </nav>
     )
 }

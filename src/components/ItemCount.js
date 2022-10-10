@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+
 
 const ItemCount = ({max, count, setCount, handleAgregar}) => {
     
@@ -31,7 +32,7 @@ const ItemCount = ({max, count, setCount, handleAgregar}) => {
         </button>
 
         <button onClick={handleAgregar}>
-          Añadir al carrito
+          <AddShoppingCartIcon/>
         </button>
     </div>
   )

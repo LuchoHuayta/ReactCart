@@ -3,7 +3,7 @@ import { db } from "../firebase/fireconfig";
 import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
 import { collection, getDocs, query, where } from "firebase/firestore";
-
+import CircularProgress from '@mui/material/CircularProgress';
 
 const ItemListContainer = () => {
 
@@ -22,7 +22,6 @@ const ItemListContainer = () => {
         getDocs(q)
             .then((resp) => {
                 const productosDB = resp.docs.map((doc) => ({id: doc.id, ...doc.data()}) )
-                console.log(productosDB)
 
                 setProductos(productosDB)
             })
@@ -34,10 +33,10 @@ const ItemListContainer = () => {
     
     return (
         <div className="div-itemListContainer">
-            <h2>Contenedor de lista de productos</h2>
+            <h2>Platos disponibles</h2>
             {
                 loading
-                ? <h3>Spinner</h3>
+                ? <CircularProgress color="inherit"/>
                 : <ItemList productos={productos}/>
             }
         </div>

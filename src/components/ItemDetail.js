@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useCartContext } from "../context/CartContext";
+import DoneIcon from '@mui/icons-material/Done';
+import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 
 import ItemCount from "./ItemCount"
 
@@ -18,22 +20,20 @@ const ItemDetail = ({item}) => {
             name: item.name,
             cantidad
         }
-        console.log(isInCart(item.id))
         addToCart( itemToCart )
     }
 
     return (
-        <div>
+        <div className="div-itemDetail">
             <img src={item.img} alt={item.name}/>
-            <p>{item.type}</p>
             <h3>{item.name}</h3>
-            <p>{item.desc}</p>
+            <p className="p-desc">{item.desc}</p>
             <h4>${item.price}</h4>
 
-            {isInCart(item.id) && <p>El producto ya esta en el carrito</p>}
+            {isInCart(item.id)}
             {
                 isInCart(item.id)
-                ?   <Link to="/cart">Terminar mi compra</Link>
+                ?   <Link to="/cart"><DoneIcon/><ShoppingCartCheckoutIcon/></Link>
                 :   <ItemCount
                         max={item.stock}
                         count={cantidad}

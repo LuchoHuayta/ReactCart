@@ -1,36 +1,36 @@
 import { useCartContext } from "../context/CartContext"
-import DeleteIcon from '@mui/icons-material/Delete';
 import { IconButton } from "@mui/material";
 import { Link } from "react-router-dom";
-
+import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
+import PriceCheckIcon from '@mui/icons-material/PriceCheck';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 const Cart= () => {
 
     const { cart, cartTotal, emptyCart, removeItem } = useCartContext()
 
     return (
-        <div>
+        <div className="div-cart">
             <h2>Carrito</h2>
-            <hr/>
 
             { cart.map((item) => (
-            <div key={item.id}>
+            <div className="cart-list" key={item.id}>
                 <h3>{item.name}</h3>
                 <p>${item.price}</p>
                 <p>x{item.cantidad}</p>
                 <IconButton
                     onClick={() => removeItem(item.id)}
-                    color="error"
                     aria-label="delete">
-                    <DeleteIcon/>
+                    <DeleteForeverIcon/>
                 </IconButton>
-                <hr/>
             </div>
             ))}
 
             <h4>Total: ${cartTotal()}</h4>
-            <button onClick={emptyCart}>Vaciar Carrito</button>
-            <Link to="/checkout">Terminar mi compra</Link>
+            <div className="final-moves">
+                <button onClick={emptyCart}><RemoveShoppingCartIcon/><p>Limpiar</p></button>
+                <button><Link to="/checkout"><PriceCheckIcon/></Link><p>Pagar</p></button>
+            </div>
         </div>
 
     )
